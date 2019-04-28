@@ -23,6 +23,12 @@ android {
         }
     }
 
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+
 }
 
 dependencies {
@@ -32,5 +38,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation project(':retrofitclient')
+    implementation 'com.liduo:retrofitclient:1.0.1'
 }

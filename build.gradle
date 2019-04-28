@@ -7,8 +7,10 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0'
-        
+        //为了兼容navoda插件，gradle插件使用低版本3.1.4
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        //上传bintray仓库插件
+        classpath 'com.novoda:bintray-release:0.8.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -19,6 +21,10 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven(){
+            //我自己的maven仓库地址
+            url 'https://dl.bintray.com/sh4aasznna/maven'
+        }
     }
 }
 

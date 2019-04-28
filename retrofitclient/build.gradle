@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply from: 'version.gradle'
-apply from: 'maven-release-aar.gradle'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
@@ -24,6 +24,12 @@ android {
         }
     }
 
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+
 }
 
 dependencies {
@@ -43,3 +49,13 @@ dependencies {
     //fastjson
     api 'com.alibaba:fastjson:1.2.47'
 }
+
+publish {
+    userOrg = 'sh4aasznna' //bintray账户下某个组织id
+    groupId = PUBLISH_GROUP_ID //maven仓库下库的包名，一般为模块包名
+    artifactId = PUBLISH_ARTIFACT_ID //项目名称
+    publishVersion = versionName //版本号
+    desc = '' //项目介绍，可以不写
+    website = '' //项目主页，可以不写
+}
+
