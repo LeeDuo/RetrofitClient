@@ -60,15 +60,17 @@ public class FormRequest extends BaseRequest<FormRequest>{
 	 * @param key
 	 * @param file
 	 */
-	public void addFile(String key, File file){
+	public FormRequest addFile(String key, File file){
 		fileMap.put(key, file);
+		return this;
 	}
 
 	/**
 	 * add a file map
 	 * @param fileMap
 	 */
-	public void addFile(Map<String, File> fileMap){
+	public FormRequest addFile(Map<String, File> fileMap){
 		this.fileMap.putAll(fileMap);
+		return this;
 	}
 }
