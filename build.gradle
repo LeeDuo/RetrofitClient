@@ -21,10 +21,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven(){
-            //我自己的maven仓库地址
-            url 'https://dl.bintray.com/sh4aasznna/maven'
-        }
+
     }
 }
 
