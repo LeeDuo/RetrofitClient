@@ -3,6 +3,7 @@ package com.liduo.retrofitclient.interceptor;
 import android.util.Log;
 
 import com.liduo.retrofitclient.BuildConfig;
+import com.liduo.retrofitclient.RetrofitClient;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -22,14 +23,13 @@ import okio.Buffer;
 public class MyInterceptor implements Interceptor {
 
 	private static final Charset UTF8 = Charset.forName("UTF-8");
-	private final String TAG = this.getClass().getSimpleName();
-	private final static boolean DEBUG = BuildConfig.DEBUG;
+	private final String TAG = RetrofitClient.TAG;
 
 	@Override
 	public Response intercept(Chain chain) throws IOException {
 		Request request = chain.request();
 		long start = System.currentTimeMillis();
-		if (DEBUG) {
+		if (RetrofitClient.DEBUG) {
 			Log.d(TAG, "----------Start----------------");
 			Log.d(TAG, "| " + request.method() + " --> " + request.url());
 			Log.d(TAG, "| headers:\n{\n" + request.headers().toString() + "}");
@@ -45,7 +45,7 @@ public class MyInterceptor implements Interceptor {
 				charset = contentType.charset(UTF8);
 			}
 
-			if (DEBUG) {
+			if (RetrofitClient.DEBUG) {
 				Log.d(TAG, "| requestBody:" + buffer.readString(charset));
 			}
 
@@ -57,7 +57,7 @@ public class MyInterceptor implements Interceptor {
 		String bodyString = body.string();
 		long end = System.currentTimeMillis();
 		long time = end - start;
-		if (DEBUG) {
+		if (RetrofitClient.DEBUG) {
 			Log.d(TAG, "| response:" + bodyString);
 			Log.d(TAG, "----------End:" + time + " ms----------");
 		}

@@ -24,7 +24,8 @@ public class RetrofitClient {
 
     private static RetrofitClient mInstance;
     private static Retrofit mRetrofit;
-    private final static String TAG = "RetrofitClient";
+    public final static String TAG = "RetrofitClient";
+    public static boolean DEBUG = true;
 
 
     private RetrofitClient() {

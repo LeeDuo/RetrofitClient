@@ -2,6 +2,7 @@ package com.liduo.test;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.liduo.retrofitclient.RetrofitClient;
 import com.liduo.retrofitclient.response.ResponseCallback;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RetrofitClient.init("http://www.baidu.com");
 
-        RetrofitClient.getInstance().get()// get
+        /*RetrofitClient.getInstance().get()// get
                 .setApiName("/testapi")// 接口路径，如果与baseUrl不同，这里可以传全路径比如 http://www.xxx.com/testapi
                 .addHeader("headerKey", "headerValue") // 请求头
                 .addQuery("queryKey1", 100)// get参数，值可以为基本数据类型，这里用object接收的
@@ -65,6 +66,18 @@ public class MainActivity extends AppCompatActivity {
                     public void onError(String errMsg) {
 
                     }
-                });
+                });*/
+
+        RetrofitClient.getInstance().get().setApiName("").call(new ResponseCallback<String>() {
+            @Override
+            public void onResponse(String response) {
+//                Log.e("leed", response);
+            }
+
+            @Override
+            public void onError(String errMsg) {
+
+            }
+        });
     }
 }
