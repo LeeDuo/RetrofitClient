@@ -30,7 +30,7 @@ public class JsonRequest extends BaseRequest<JsonRequest> {
 
     @Override
     public void call(ResponseCallback callback) {
-        if (TextUtils.isEmpty(jsonString)) {
+        if (!TextUtils.isEmpty(jsonString)) {
             RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonString);
             if (method.equals(BaseRequest.METHOD_POST)) {
                 ResponseHandler.getInstance().post(apiName, headerMap, body, callback);
