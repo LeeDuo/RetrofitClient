@@ -3,7 +3,7 @@
 // 版本信息
 ext {// ext is a gradle closure allowing the declaration of global properties
     versionCode = 1
-    versionName = '1.0.5'
+    versionName = '1.0.6'
 
     PUBLISH_GROUP_ID = 'com.liduo'
     PUBLISH_ARTIFACT_ID = 'retrofitclient'
