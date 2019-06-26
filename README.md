@@ -15,7 +15,7 @@ allprojects {
 然后app的build.gradle：
 
 ```
-implementation 'com.liduo:retrofitclient:1.0.5'
+implementation 'com.liduo:retrofitclient:1.0.6'
 ```
 使用：
 
